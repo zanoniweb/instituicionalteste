@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <title>MANUAL: GOVERNANÇA DE INOVAÇÃO DE CAMBÉ.</title>
+
+    <style>
+        ul {
+            background-color: black;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            
+        }
+        a {
+            color: white;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: yellow; /* Cor do link ao passar o mouse */
+        }
+
+        .separator {
+            color: white; /* Estilização do separador dos itens do menu */
+        }     
+        
+        header {
+            text-align: center;
+            justify-content: center; 
+            align-items: center; 
+            background-color: white; 
+            padding: 20px; 
+        }    
+    
+        .logo { 
+            max-width: 250px; /* Ajuste conforme necessário */ 
+            height: auto; 
+        }
+
+        h1, h2, h3, h4, h5, h6, h7, h8, h9 {
+            font-family: Geneva; /* Formatação padrão do estílo dos títulos */
+            font-size: 45px;
+            text-align: center;
+        }
+        
+        body {
+            color: black; /* Formatação padrão do estilo de texto dentro da página web */
+            background-color: white;
+            font-family: Arial, sans-serif;
+            font-size: 25px;
+        }
+
+        p {
+            font-family: Geneva; /* Formatação padrão do estílo dos parágrafos */
+            font-size: 25px;
+            text-align: justify;
+        }
+        footer {
+            font-family: Geneva; /* Formatação padrão nota de rodapé */
+            font-size: 14px;
+            text-align: center;
+        }
+        button {
+            color: white; /* Formatação padrão para botões */
+            background-color: blueviolet;
+            font-family: Geneva;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        /* Início da formatação padrão para o manual */
+
+        .manual {
+            width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+        }
+
+        .page {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+        }
+
+        .cover {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .cover img {
+            max-width: 200px;
+        }
+
+        /* Final da formatação padrão para o manual */
+
+    </style>
+
+</head>
+
+<header>
+
+    <nav>
+    <ul>
+
+     <a href="agenda.html">AGENDA</a> <span class="separator">|</span>     
+     <a href="chat.html">CHAT INTERATIVO</a> <span class="separator">|</span> 
+     <a href="contatos.html">CONTATOS</a> <span class="separator">|</span>
+     <a href="fotos.html">GALERIA DE FOTOS</a> <span class="separator">|</span>
+     <a href="index.html">INSTITUCIONAL</a> <span class="separator">|</span> 
+     <a href="inscricao.html">INSCRIÇÃO</a> <span class="separator">|</span> 
+     <a href="noticias.html">NOTÍCIAS</a> <span class="separator">|</span> 
+     <a href="videos.html">VIDEOS</a> <span class="separator">|</span>
+        
+    </ul>
+    </nav>    
+
+    <img src=" https://d1yei2z3i6k35z.cloudfront.net/6946809/67b1e33c31c75_IMG-20250214-WA0002.jpg" alt="Governança de Inovação de Cambé" class="logo">
+
+</header>
+
+
+<body>
+  
+    <div class="manual" id="manual">
+        <div class="page cover">
+            <h1>Manual Institucional</h1>
+            <img src="https://d1yei2z3i6k35z.cloudfront.net/6946809/67b1e33c31c75_IMG-20250214-WA0002.jpg" alt="Logo da Empresa">
+        </div>
+        <div class="page">
+            <h2>Diretoria</h2>
+            <p>Presidente: Nome do Presidente</p>
+            <p>Vice-Presidente: Nome do Vice-Presidente</p>
+            <p>Diretores: Nome dos Diretores</p>
+        </div>
+        <div class="page">
+            <h2>Introdução</h2>
+            <p>Este manual apresenta diretrizes e informações essenciais...</p>
+        </div>
+        <div class="page">
+            <h2>Seção 1 - Normas Gerais</h2>
+            <p>Aqui serão abordadas as normas gerais da instituição...</p>
+        </div>
+        <div class="page">
+            <h2>Seção 2 - Procedimentos Internos</h2>
+            <p>Descrição dos principais procedimentos internos...</p>
+        </div>
+        <div class="page">
+            <h2>Seção 3 - Direitos</h2>
+            <p>Sugestão para apresentar os direitos ofertados</p>
+        </div>
+        <div class="page">
+            <h2>Seção 4 - Deveres</h2>
+            <p>Sugestão para apresentar os deveres...</p>
+        </div>
+
+    </div>
+    
+<center>
+
+    <div class="button-container">
+        <button onclick="salvarPDF()">Salvar PDF</button>
+    </div>
+
+</center>
+
+    <br>
+
+<i>
+
+  <footer>
+    Site em desenvolvimento por Juliano Zanoni acadêmcio do 5º semestre do curso de Engenharia de Software da Universidade Anhenguera para projeto de extensão acadêmico.
+  </footer>
+ 
+</i>
+
+<script>
+
+document.querySelector('.button-container button').addEventListener('click', salvarPDF);
+
+function salvarPDF() {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({ format: 'a4' });
+  
+  const cover = document.querySelector('.page.cover');
+  const pages = document.querySelectorAll('.page:not(.cover)');
+  
+  const coverImage = cover.querySelector('img').src;
+  const coverTitle = cover.querySelector('h1').innerText;
+
+  // Adicionar a capa
+  const img = new Image();
+  img.src = coverImage;
+  img.onload = function() {
+    const imgWidth = 210;
+    const imgHeight = (img.height * imgWidth) / img.width;
+    pdf.addImage(img, 'JPEG', 0, 50, imgWidth, imgHeight);
+    pdf.setFontSize(24);
+    pdf.text(coverTitle, 105, 30, { align: 'center' });
+
+    // Adicionar nova página antes de começar o conteúdo principal
+    pdf.addPage();
+
+    pages.forEach((page, index) => {
+      if (index > 0) pdf.addPage();
+
+      const headings = page.querySelectorAll('h2');
+      const paragraphs = page.querySelectorAll('p');
+
+      pdf.setFontSize(20);
+      headings.forEach((heading, i) => {
+        pdf.text(heading.innerText, 10, 30 + (i * 20));
+      });
+
+      pdf.setFontSize(12);
+      let yPosition = 50;
+      paragraphs.forEach((paragraph, i) => {
+        const text = pdf.splitTextToSize(paragraph.innerText, 180);
+        pdf.text(text, 10, yPosition);
+        yPosition += 10 + (text.length * 5);
+      });
+    });
+
+    pdf.save('Manual_Institucional.pdf');
+  };
+}
+
+ // Código de teste do QR CODE do telefone de contato da Repartição - OBSERVAÇÃO ESSE CÓDIGO FALHOU!!!
+
+
+</script>
+
+</body>
+
+
+</html>

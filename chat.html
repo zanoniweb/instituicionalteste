@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT INTERATIVO: GOVERNANÇA DE INOVAÇÃO DE CAMBÉ.</title>
+
+    <style>
+        ul {
+            background-color: white;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            
+        }
+        a {
+            font-family: Geneva;
+            color: black;
+            font-size: 30px;
+            align-items: justify;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: yellow; /* Cor do link ao passar o mouse */
+        }
+
+        .separator {
+            color: black; /* Estilização do separador dos itens do menu */
+        }        
+
+        header {
+            text-align: center;
+            justify-content: center; 
+            align-items: center; 
+            background-color: white; 
+            padding: 20px; 
+        } 
+    
+        .logo { 
+            max-width: 250px; /* Ajuste conforme necessário */ 
+            height: auto; 
+        }
+        
+        h1, h2, h3, h4, h5, h6, h7, h8, h9 {
+            font-family: Geneva; /* Formatação padrão do estílo dos títulos */
+            font-size: 45px;
+            text-align: center;
+        }
+        
+        body {
+            color: black; /* Formatação padrão do estilo de texto dentro da página web */
+            background-color: white;
+            font-family: Geneva;
+            font-size: 25px;
+        }
+        p {
+            font-family: Geneva; /* Formatação padrão do estílo dos parágrafos */
+            font-size: 25px;
+            text-align: justify;
+        }
+        footer {
+            font-family: Geneva; /* Formatação padrão nota de rodapé */
+            font-size: 14px;
+            text-align: center;
+        }
+        button {
+            color: white; /* Formatação padrão de botões */
+            background-color: blueviolet;
+            font-family: Geneva;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        /* Formatação incio de estilização do chat */
+        .chat-container { 
+            max-width: 600px; /* Aumentando a largura */
+            width: 90%; /* Para maior responsividade */
+            margin: 0 auto; 
+            background: #fff; 
+            border: 1px solid #ddd; 
+            border-radius: 10px; 
+            padding: 15px; 
+        }
+        .messages { 
+            max-height: 400px; /* Aumentando a altura */
+            overflow-y: auto; 
+            margin-bottom: 10px; 
+        }
+        .message { 
+            margin: 5px 0; 
+            padding: 5px; 
+            border-radius: 5px; 
+        }
+        .user-message { 
+            background-color: #d3f8d3; 
+            text-align: left; 
+        }
+        .bot-message { 
+            background-color: #f8d3d3; 
+            text-align: right; 
+        }
+        input[type="text"] { 
+            width: 85%; /* Ajustando para caber melhor */
+            padding: 10px; 
+            margin-top: 10px; 
+            border-radius: 5px; 
+        }
+
+        .chat-button {
+            width: auto; /* Permite que o botão ajuste sua largura conforme o conteúdo */
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Início do código do botão de orientação */
+        .manual {
+            position: fixed;
+            top: 0;
+            right: -350px; /* Escondido fora da tela */
+            width: 300px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            transition: right 0.3s ease-in-out;
+        }
+
+        .manual h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .manual ul {
+            padding-left: 20px;
+        }
+
+        .manual ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .manual.ativo {
+            right: 0; /* Aparece na tela */ 
+        } /* Final do código do botão de orientação */
+
+    </style>
+
+</head>
+
+<header>
+
+    <nav>
+    <ul>
+
+     <a href="agenda.html">AGENDA</a> <span class="separator">|</span> 
+     <a href="contatos.html">CONTATOS</a> <span class="separator">|</span>
+     <a href="fotos.html">GALERIA DE FOTOS</a> <span class="separator">|</span>
+     <a href="index.html">INSTITUCIONAL</a> <span class="separator">|</span>
+     <a href="inscricao.html">INSCRIÇÃO</a> <span class="separator">|</span> 
+     <a href="manual.html">MANUAL</a> <span class="separator">|</span> 
+     <a href="noticias.html">NOTÍCIAS</a> <span class="separator">|</span> 
+     <a href="videos.html">VIDEOS</a> <span class="separator">|</span>
+        
+    </ul>
+    </nav>    
+          
+    <img src=" https://d1yei2z3i6k35z.cloudfront.net/6946809/67b1e33c31c75_IMG-20250214-WA0002.jpg" alt="Governança de Inovação de Cambé" class="logo">
+
+</header>
+
+
+<body>
+
+    
+    <br>
+
+
+    <center>
+
+        <h1><b>CHAT INTERATIVO.</b></h1>
+    
+    </center>
+
+<!--INICIO DO CAMPO DE PESQUISA E BOTÕES-->
+
+<div class="chat-container">
+    <div class="messages" id="messages"></div>
+    <input type="text" id="userInput" placeholder="Digite aqui a palavra chave de sua busca.">
+    <button class="chat-button" onclick="sendMessage()">Enviar</button>
+    <button class="chat-button" onclick="clearChat()">Limpar</button>
+    <button class="chat-button" id="btnOrientacoes">Orientações Chat</button>
+</div>
+
+<!--FINAL DO CAMPO DE PESQUISA E BOTÕES-->
+
+<!--INICIO DO CÓDIGO DO BOTÃO DE ORIENTAÇÕES-->
+
+<div id="manual" class="manual">
+    <button class="chat-button" id="btnFechar">✖</button>
+    <h2>Manual de Orientações ao Usuário</h2>
+    <ul>
+        <li>✔ Passo 1: Esse chat destina-se a orientações e informais iniciais</li>
+        <li>✔ Passo 2: Faça pesquisa por palavra chave, por exemplo: capital, dados, programas etc. E na sequência clique em <span style="color: blue;">Enviar</span>.</li>
+        <li>✔ Passo 3:  Observação nesse momento inicial esse modelo de chat interativo tem informações referente aos pontos:  -  <span style="color: blue;"> Análise da Região</span>: nessa linha temática temos os pontos chaves que você pode solicitar informações por palavras chaves que são: <b>dados, microrregião e econômicos</b>; - <span style="color: blue;"> Priorização de Vertentes de Inovação</span>: nessa linha temática temos os pontos chaves que você pode solicitar informações por palavras chaves que são: <b>icti, capital, políticas, governança, ambientes e programas</b>; - <span style="color: blue;"> Setores</span>: nessa linha temática temos os pontos chaves que você pode solicitar informações por palavras chaves que são: <b>>cadeia, eletro metalmecânico, químicos, fármacos e tic</b>;</li>
+        <li>✔ Passo 4: Este espaço está disponível 24 horas para as suas consultas.</li>
+    </ul>
+</div>
+
+<!--FINAL DO CÓDIGO DO BOTÃO DE ORIENTAÇÕES-->
+
+
+<i>    
+
+  <footer>
+    Site em desenvolvimento por Juliano Zanoni acadêmcio do 5º semestre do curso de Engenharia de Software da Universidade Anhenguera para projeto de extensão acadêmico.
+  </footer>
+ 
+</i>
+
+<script>
+
+const botName = "CHAT INTERATIVO"; // INICIO DO CÓDIGO DO CHAT
+
+function addMessage(text, isBot = false) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', isBot ? 'bot-message' : 'user-message');
+    messageElement.textContent = text;
+    document.getElementById('messages').appendChild(messageElement);
+    document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+}
+
+function sendMessage() {
+    const userMessage = document.getElementById('userInput').value.trim().toLowerCase();
+    if (userMessage === "") return;
+
+    addMessage(userMessage, false);
+    document.getElementById('userInput').value = "";
+
+    setTimeout(() => {
+        const botResponse = getBotResponse(userMessage);
+        addMessage(botResponse, true);
+    }, 1000);
+}
+
+// Normaliza a entrada para minúsculas
+
+function getBotResponse(input) {
+    const responses = [
+
+
+// INICIO DO CÓDIGO DAS RESPOSTAS REFERENTE A ANÁLISE DA REGIÃO
+
+    { keywords: ["análise"], response: "É possível pesquisar de forma individualizada na Análise da Região por: dados, microrregião e econômicos" },
+
+    { keywords: ["dados"], response: "O estado do Paraná possui 399 municípios e uma população de 11.597.484 habitantes (2021). Sua área territorial é de 199.298,981 km², resultando em uma densidade demográfica de 58,19 habitantes por km². O Produto Interno Bruto (PIB) estadual em 2019 foi de R$ 466.377.044 milhões, com um PIB per capita de R$ 40,21. O Índice de Desenvolvimento Humano Municipal (IDH-M) registrado em 2010 foi de 0,749. Em 2021, o Paraná contava com 627.611 empresas ativas, e em 2018, o total de empregos formais foi de 2.302.581. A região de Londrina, composta por um único município, registrou uma população de 580.870 habitantes em 2021 e uma área territorial de 1.652,569 km², resultando em uma densidade demográfica de 351,49 habitantes por km². O PIB da região em 2019 foi de R$ 21.599.786 milhões, com um PIB per capita de R$ 37,18. O IDH-M de 2010 foi de 0,778. Em 2021, Londrina possuía 39.553 empresas, e em 2018, o número total de empregos formais foi de 127.635. A cidade de Cambé, também composta por um único município, apresentou uma população de 108.126 habitantes em 2021 e uma área de 495,375 km², resultando em uma densidade demográfica de 218,27 habitantes por km². Seu PIB em 2019 foi de R$ 4.116.913 milhões, com um PIB per capita de R$ 38,79. O IDH-M registrado em 2010 foi de 0,743. No ano de 2021, Cambé possuía 4.818 empresas ativas, e em 2018, o total de empregos formais era de 16.998." },
+
+    { keywords: ["microrregião"], response: "Microrregião: Cambé é um município localizado no norte paranaense, e está localizada a 393 quilômetros da capital do estado, Curitiba. Possui uma população de 108.126 mil habitantes segundo estimativa do IBGE (2021), ocupando a 16ª posição entre os 399 municípios paranaenses e 818ª posição entre os 5.565 municípios brasileiros, segundo o IDHM. O PIB de Cambé em 2019, segundo o Ipardes, foi de R$ 4.11 MI. Já o PIB per capita de Cambé atingiu o patamar de R$ 38.790 mil, valor este 4,33% superior se comparado ao PIB per capita de Londrina." },
+
+    { keywords: ["econômicos"], response: "Dados econômicos e empresariais: No que concerne à análise, os dados econômicos e empresariais de Cambé, é de acordo com o sistema RAIS do MTE – Ministério do Trabalho e Emprego, separados pelas categorias do CNAE 2.0. O município de Cambé possui um percentual maior de empregos no setor terciário (comércio e serviços), apresentando um cenário empresarial semelhante quando comparado à região de Londrina, e da qual faz parte. Alguns dados relativos à composição do setor produtivo de Cambé: 74,15% das empresas cambeenses pertencem ao setor de Serviços e Comércio. 17,76% das empresas cambeenses pertencem ao setor industrial. 84,27% das empresas são categorizadas como Microempresas, com faturamento até R$ 360 mil ao ano. Em relação a postos de trabalho, percentualmente Cambé apresenta 36,65% da massa produtiva atrelados a Empresas de Pequeno Porte. Já em relação à temática de inovação, e mediante a pesquisa realizada, foram verificadas 29 empresas de Médio e Grande Porte que podem apresentar ações de inovação." },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+// FINAL DO CÓDIGO DAS RESPOSTAS REFERENTE A ANÁLISE DA REGIÃO
+
+// INICIO DO CÓDIGO DAS RESPOSTAS DE PRIORIZAÇÃO DE VERTENTES DE INOVAÇÃO
+
+{ keywords: ["priorização"], response: "É possível pesquisar de forma individualizada na Priorização de Vetores de Inovação por: icti, capital, políticas, governança, ambientes e programas" },
+
+{ keywords: ["icti"], response: "Instituição de Ciência, Tecnologia e Inovação (ICTI) - Essa vertente avalia o nível de maturidade da geração de conhecimento científico-tecnológico para a promoção da inovação. Para essa vertente foram considerados como elementos de análise: programas de pós-graduação stricto sensu e o doutorado, bem como as linhas de pesquisas e infraestruturas disponíveis." },
+
+{ keywords: ["capital"], response: "Capital - A vertente analisa a disponibilidade e a capacidade das empresas e da região de acessarem recursos para a promoção da inovação. Para essa vertente são considerados os seguintes elementos: recursos financeiros e incentivos fiscais." },
+
+{ keywords: ["políticas"], response: "Políticas Públicas - Nessa vertente avalia-se a existência e a efetividade das políticas públicas voltadas à promoção da inovação nas áreas consideradas como de oportunidade. Para essa vertente foram considerados como pontos de análise: políticas públicas focadas em Ciência, Inovação e Tecnologia." },
+
+{ keywords: ["governança"], response: "Governança - A vertente analisa o grau de articulação entre os atores e se existe alguma liderança relacionada às áreas consideradas como de oportunidade. Para essa vertente foram considerados como pontos de análise: arranjos representativos de classe, núcleos setoriais e eventos setoriais." },
+
+{ keywords: ["ambientes"], response: "Ambientes de Inovação - Esta vertente considera os ambientes instalados no município e sua capacidade de promover a inovação. Pré-incubadoras, Incubadoras, Aceleradoras, Espaço Maker, Coworking, Parques Tecnológicos e Centros de Inovação." },
+
+{ keywords: ["programas"], response: "Programas e Ações - São as atividades desenvolvidas pelo município que incentivam e promovem a inovação em empresas e nos diversos atores dentro do município, como os programas: Cidade Empreendedora, Sala do Empreendedor, Educação Empreendedora; realização de Hackathon, Meetup, Open Innovation, Startup Weekend, dentre outros eventos de estímulo ao empreendedorismo e à inovação." },
+
+{ keywords: [" "], response: " " },
+
+{ keywords: [" "], response: " " },
+
+// FINAL DO CÓDIGO DAS RESPOSTAS DE PRIORIZAÇÃO DE VERTENTES DE INOVAÇÃO
+
+// INICIO DO CÓDIGO DAS RESPOSTAS REFERENTE AOS SETORES
+           
+    { keywords: ["setores"], response: "Mediante ao exposto, e objetivando-se maior esclarecimento acerca dos setores estratégicos e de oportunidades para Cambé, a seguir, e de forma sucinta, discorre-se sobre os setores e áreas elencadas, a saber: Cadeia do Agronegócio, Eletrometalmecânico, Químicos, Fármacos e TIC. Para se aprofundar mais sobre cada um deles pesquise de forma individualizada por: Cadeia, Eletrometalmecânico, Químicos, Fármacos e TIC" },
+    
+    { keywords: ["cadeia"], response: "CADEIA DO AGRONEGÓCIO - Engloba as segmentações de agricultura, pecuária, fabricação de produtos alimentícios e bebidas, além de serviços relacionados. Dessa forma, compreende o cultivo de lavouras, a criação e produção animal, bem como o processo inerente à cadeia de transformação dos insumos em alimentos para uso humano e animal. Ressalva-se que em relação ao segmento de fabricação de bebidas, são consideradas as diversas tipologias, ou seja, compreendem desde a produção de água envasada, perpassando por refrigerantes, refrescos e xaropes, e por fim as com teor alcoólicos. Engloba principalmente a cadeia de transformação de insumos e alimentos advindos do agronegócio, com vistas a promover a conversão destes em produtos finais e/ou intermediários para o consumo humano ou animal. A cadeia do agronegócio e a indústria alimentar podem ser considerados processos sequenciais, e que conjuntamente pode-se denominar-se como Agroindústria." },
+
+    { keywords: ["eletrometalmêcanico"], response: "ELETROMETALMECÂNICO - Engloba um conglomerado de segmentos, que inicia-se prioritariamente com a área de máquinas e equipamentos em geral, perpassando por produtos eletrônicos e de informática, processos de metalurgia em geral e congregando serviços relacionados, como manutenção e reparação." },
+
+    { keywords: ["químicos"], response: "QUÍMICOS E MATERIAIS - Congrega as empresas que produzem produtos químicos industriais, como petroquímicos, agroquímicos, produtos farmacêuticos, polímeros e tintas. São utilizados processos químicos, incluindo reações químicas, para formar novas substâncias, separações baseadas em propriedades tais como a solubilidade ou a carga iônica, em diversos processos de separação, como as destilações, além de transformações por aquecimento ou por outros métodos. Em materiais, citamos a indústria de plástico, borrachas, novos polímeros, nanotecnologia e outras tecnologias. Referem-se aos materiais que, devido às suas propriedades intrínsecas ou aos processos tecnológicos de preparação, possuem a potencialidade de gerar novos produtos, soluções e processos inovadores de elevado valor tecnológico, econômico, social e ambiental, de elevar o desempenho, durabilidade, de agregar valor ou de introduzir novas funcionalidades em produtos e processos tradicionais." },
+
+    { keywords: ["fármacos"], response: "FÁRMACOS - Engloba um conglomerado de segmentos, que inicia-se prioritariamente com a área de produção de medicamentos e saúde, perpassando por pesquisas farmacêuticas, processos biotecnológicos, e em geral e congrega serviços relacionados à saúde humana." },
+
+    { keywords: ["tic"], response: "TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO (TIC) - Engloba os segmentos de telecomunicações, serviços de tecnologia (desenvolvimento de software/hardware), e como também prestações de serviços inerentes ao setor, tais como: infraestrutura, segurança e tratamento de dados, consultoria e treinamentos, suporte técnico." },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+// FINAL DO CÓDIGO DAS RESPOSTAS REFERENTE AOS SETORES
+            
+// INICIO DO CÓDIGO DAS RESPOSTAS REFERENTE A OUTROS PONTOS
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+    { keywords: [" "], response: " " },
+
+// FINAL DO CÓDIGO DAS RESPOSTAS REFERENTE A OUTROS PONTOS
+
+    ];
+ 
+
+        // Melhorando a busca de palavras-chave
+        for (let item of responses) {
+            for (let keyword of item.keywords) {
+                if (input.includes(keyword)) {
+                    return item.response;
+                }
+            }
+        }
+
+        return "Desculpe, eu não entendi. Pode perguntar outra coisa? Mas pergunte por palavras chaves.";
+    } // FINAL DO CÓDIGO DO CHAT
+
+     // CODIGO PARA LIMPAR CHAT
+    function clearChat() {
+        document.getElementById('messages').innerHTML = "";
+    }
+
+    // CODIGO REFERENTE A FUNCIONALIDADE DO BOTÃO DE ORIENTAÇÃO
+    document.getElementById("btnOrientacoes").addEventListener("click", function () {
+    document.getElementById("manual").classList.add("ativo");
+});
+
+document.getElementById("btnFechar").addEventListener("click", function () {
+    document.getElementById("manual").classList.remove("ativo");
+});
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>

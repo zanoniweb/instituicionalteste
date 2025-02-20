@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGENDA DE EVENTOS ANUAIS: GOVERNANÇA DE INOVAÇÃO DE CAMBÉ.</title>
+
+    <style>
+      ul {
+            background-color: black;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            
+        }
+        a {
+            color: white;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: yellow; /* Cor do link ao passar o mouse */
+        }
+
+        .separator {
+            color: white; /* Estilização do separador dos itens do menu */
+        }        
+
+        header {
+            text-align: center;
+            justify-content: center; 
+            align-items: center; 
+            background-color: white; 
+            padding: 20px; 
+        } 
+    
+        .logo { 
+            max-width: 250px; /* Ajuste conforme necessário */ 
+            height: auto; 
+        }
+
+        h1, h2, h3, h4, h5, h6, h7, h8, h9 {
+            font-family: Geneva; /* Formatação padrão do estílo dos títulos */
+            font-size: 45px;
+            text-align: center;
+        }
+        
+        body {
+            color: black; /* Formatação padrão do estilo de texto dentro da página web */
+            background-color: white;
+            font-family: Geneva;
+            font-size: 25px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        p {
+            font-family: Geneva; /* Formatação padrão do estílo dos parágrafos */
+            font-size: 25px;
+            text-align: center;
+        }
+        footer {
+            font-family: Geneva; /* Formatação padrão nota de rodapé */
+            font-size: 14px;
+            text-align: center;
+        }
+        button {
+            color: white; /* Formatação padrão de botões */
+            background-color: blueviolet;
+            font-family: Geneva;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        /* Formatação padrão inicial da agenda */
+        
+        label, select {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #eventos {
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .evento {
+            background: white;
+            padding: 10px;
+            margin: 5px auto;
+            width: 50%;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formatação padrão final da agenda */
+
+    </style>
+
+</head>
+
+<header>
+
+    <nav>
+    <ul>
+
+     <a href="chat.html">CHAT INTERATIVO</a> <span class="separator">|</span> 
+     <a href="contatos.html">CONTATOS</a> <span class="separator">|</span>
+     <a href="fotos.html">GALERIA DE FOTOS</a> <span class="separator">|</span>
+     <a href="index.html">INSTITUCIONAL</a> <span class="separator">|</span>
+     <a href="inscricao.html">INSCRIÇÃO</a> <span class="separator">|</span> 
+     <a href="manual.html">MANUAL</a> <span class="separator">|</span> 
+     <a href="noticias.html">NOTÍCIAS</a> <span class="separator">|</span> 
+     <a href="videos.html">VIDEOS</a> <span class="separator">|</span>
+        
+    </ul>
+    </nav>   
+
+    <img src=" https://d1yei2z3i6k35z.cloudfront.net/6946809/67b1e33c31c75_IMG-20250214-WA0002.jpg" alt="Governança de Inovação de Cambé" class="logo">
+
+</header>
+
+
+<body>
+
+<h1>AGENDA DE EVENTOS ANUAIS: 2025.</h1>
+    
+    <br>
+    
+    <label for="mes">Selecione um mês:</label>
+    <select id="mes" onchange="mostrarEventos()">
+        <option value="" selected>Selecionar</option>
+        <option value="janeiro">Janeiro</option>
+        <option value="fevereiro">Fevereiro</option>
+        <option value="marco">Março</option>
+        <option value="abril">Abril</option>
+        <option value="maio">Maio</option>
+        <option value="junho">Junho</option>
+        <option value="julho">Julho</option>
+        <option value="agosto">Agosto</option>
+        <option value="setembro">Setembro</option>
+        <option value="outubro">Outubro</option>
+        <option value="novembro">Novembro</option>
+        <option value="dezembro">Dezembro</option>
+    </select>
+
+    <div id="eventos"></div>
+
+   
+    <br>
+
+<i>
+    
+  <footer>
+    Site em desenvolvimento por Juliano Zanoni acadêmcio do 5º semestre do curso de Engenharia de Software da Universidade Anhenguera para projeto de extensão acadêmico.
+  </footer>
+ 
+</i>
+
+<script>
+
+const eventosPorMes = {
+    janeiro: [
+        { data: "10/01", titulo: "Workshop I das 14:00 até às 18:00 horas" },
+        { data: "25/01", titulo: "Workshop II das 14:00 até às 18:00 horas" }
+    ],
+    fevereiro: [
+        { data: "14/02", titulo: "Workshop III das 14:00 até às 18:00 horas" },
+        { data: "28/02", titulo: "Workshop IV das 14:00 até às 18:00 horas" }
+    ],
+    marco: [
+        { data: "05/03", titulo: "I Ciclo de Palestras das 08:00 até às 12:00 horas" },
+        { data: "20/03", titulo: "II Ciclo de Palestras das 08:00 até às 12:00 horas" }
+    ],
+    abril: [
+        { data: "12/04", titulo: "III Ciclo de Palestras das 08:00 até às 12:00 horas" },
+        { data: "27/04", titulo: "IV Ciclo de Palestras das 08:00 até às 12:00 horas" }
+    ],
+    maio: [
+        { data: "08/05", titulo: "I Encontro do Setor Industrial das 08:00 até às 12:00 horas" },
+        { data: "30/05", titulo: "II Encontro do Setor Industrial das 08:00 até às 12:00 horas" }
+    ],
+    junho: [
+        { data: "15/06", titulo: "III Encontro do Setor Industrial das 08:00 até às 12:00 horas" }
+    ],
+    julho: [
+        { data: "10/07", titulo: "IV Encontro do Setor Industrial das 08:00 até às 12:00 horas" },
+        { data: "25/07", titulo: "V Encontro do Setor Industrial das 08:00 até às 12:00 horas" }
+    ],
+    agosto: [
+        { data: "05/08", titulo: "I Seminário Comércio Exterior das 13:00 até às 17:00 horas" },
+        { data: "22/08", titulo: "II Seminário Comércio Exterior das 13:00 até às 17:00 horas" }
+    ],
+    setembro: [
+        { data: "09/09", titulo: "III Seminário Comércio Exterior das 13:00 até às 17:00 horas" },
+        { data: "18/09", titulo: "IV Seminário Comércio Exterior das 13:00 até às 17:00 horas" }
+    ],
+    outubro: [
+        { data: "07/10", titulo: "V Seminário Comércio Exterior das 13:00 até às 17:00 horas" },
+        { data: "21/10", titulo: "VI Seminário Comércio Exterior das 13:00 até às 17:00 horas" }
+    ],
+    novembro: [
+        { data: "03/11", titulo: "VII Seminário Comércio Exterior das 13:00 até às 17:00 horas" },
+        { data: "17/11", titulo: "VIII Seminário Comércio Exterior das 13:00 até às 17:00 horas" }
+    ],
+    dezembro: [
+        { data: "12/12", titulo: "IX Seminário Comércio Exterior das 13:00 até às 17:00 horas" },
+        { data: "28/12", titulo: "X Seminário Comércio Exterior das 13:00 até às 17:00 horas"}
+    ]
+};
+
+function mostrarEventos() {
+    let mesSelecionado = document.getElementById("mes").value;
+    let eventosDiv = document.getElementById("eventos");
+
+    eventosDiv.innerHTML = ""; // Limpa o conteúdo anterior
+
+    if (mesSelecionado === "") {
+        eventosDiv.innerHTML = "<b><p>Selecione um mês para ver os eventos.</p></b>";
+        return;
+    }
+
+    if (eventosPorMes[mesSelecionado] && eventosPorMes[mesSelecionado].length > 0) {
+        eventosPorMes[mesSelecionado].forEach(evento => {
+            let eventoElemento = document.createElement("div");
+            eventoElemento.classList.add("evento");
+            eventoElemento.innerHTML = `<strong>${evento.data}:</strong> ${evento.titulo}`;
+            eventosDiv.appendChild(eventoElemento);
+        });
+    } else {
+        eventosDiv.innerHTML = "<p>Sem eventos cadastrados para este mês.</p>";
+    }
+}
+
+
+</script>
+
+</body>
+
+
+</html>

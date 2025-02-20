@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALERIA DE FOTOS: GOVERNANÇA DE INOVAÇÃO DE CAMBÉ.</title>
+
+    <style>
+      ul {
+            background-color: black;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            
+        }
+        a {
+            color: white;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: yellow; /* Cor do link ao passar o mouse */
+        }
+
+        .separator {
+            color: white; /* Estilização do separador dos itens do menu */
+        }
+        
+        header {
+            text-align: center;
+            justify-content: center; 
+            align-items: center; 
+            background-color: white; 
+            padding: 20px; 
+        } 
+    
+        .logo { 
+            max-width: 250px; /* Ajuste conforme necessário */ 
+            height: auto; 
+        }
+
+        h1, h2, h3, h4, h5, h6, h7, h8, h9 {
+            font-family: Geneva; /* Formatação padrão do estílo dos títulos */
+            font-size: 45px;
+            text-align: center;
+        }
+        
+        body {
+            color: black; /* Formatação padrão do estilo de texto dentro da página web */
+            background-color: white;
+            font-family: Geneva;
+            font-size: 25px;
+        }
+        p {
+            font-family: Geneva; /* Formatação padrão do estílo dos parágrafos */
+            font-size: 25px;
+            text-align: justify;
+        }
+        footer {
+            font-family: Geneva; /* Formatação padrão nota de rodapé */
+            font-size: 14px;
+            text-align: center;
+        }
+
+        footer img { /* Formatação padrão para reduzir o tamanho da imagem do foorter */
+        height: auto;
+        }
+
+        button {
+            color: white; /* Formatação padrão de botões */
+            background-color: blueviolet;
+            font-family: Geneva;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        /* Início do código de estilização da galeria */
+         body { font-family: Geneva, sans-serif; text-align: center; background-color: white; }
+        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 20px; max-width: 1000px; margin: auto; }
+        .gallery-item { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center; }
+        .gallery-item img { width: 100%; border-radius: 8px; cursor: pointer; }
+        .title { font-weight: bold; font-size: 18px; margin: 10px 0; }
+        .read-more { background-color: blueviolet; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 5px; font-size: 14px; }
+        .article { display: none; text-align: justify; max-width: 800px; margin: auto; }
+        .article img { width: 100%; border-radius: 8px; }
+        .back-button {  color: white; background-color: blueviolet; font-family: Geneva; font-size: 25px; text-decoration: none; }
+        @media (max-width: 800px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .gallery { grid-template-columns: repeat(1, 1fr); } }
+        /* Final do código de estilização da galeria */
+
+    </style>
+
+</head>
+
+<header>
+
+    <nav>
+    <ul>
+
+     <a href="agenda.html">AGENDA</a> <span class="separator">|</span> 
+     <a href="chat.html">CHAT INTERATIVO</a> <span class="separator">|</span> 
+     <a href="contatos.html">CONTATOS</a> <span class="separator">|</span>
+     <a href="index.html">INSTITUCIONAL</a> <span class="separator">|</span>
+     <a href="inscricao.html">INSCRIÇÃO</a> <span class="separator">|</span> 
+     <a href="manual.html">MANUAL</a> <span class="separator">|</span> 
+     <a href="noticias.html">NOTÍCIAS</a> <span class="separator">|</span> 
+     <a href="videos.html">VIDEOS</a> <span class="separator">|</span>
+        
+    </ul>
+    </nav>    
+
+    <img src=" https://d1yei2z3i6k35z.cloudfront.net/6946809/67b1e33c31c75_IMG-20250214-WA0002.jpg" alt="Governança de Inovação de Cambé" class="logo">
+
+</header>
+
+
+<body>
+
+<h1>GALERIA DE FOTOS</h1>
+
+    <div class="gallery" id="gallery"></div>
+    <div id="article-view" class="article"></div>
+  
+<i>
+
+  <footer>
+    Site em desenvolvimento por Juliano Zanoni acadêmcio do 5º semestre do curso de Engenharia de Software da Universidade Anhenguera para projeto de extensão acadêmico.
+  </footer>
+ 
+</i>
+
+<script>
+
+const photos = [
+    { src: "https://via.placeholder.com/600/0000FF/FFFFFF?text=Foto+1", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/0000FF/FFFFFF?text=Foto+1", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/008000/FFFFFF?text=Foto+2", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/FF0000/FFFFFF?text=Foto+3", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/FFA500/FFFFFF?text=Foto+4", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/FFFF00/000000?text=Foto+5", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/800080/FFFFFF?text=Foto+6", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/00FFFF/000000?text=Foto+7", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/FF00FF/FFFFFF?text=Foto+8", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/008080/FFFFFF?text=Foto+9", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/000080/FFFFFF?text=Foto+10", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/556B2F/FFFFFF?text=Foto+11", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/708090/FFFFFF?text=Foto+12", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/2E8B57/FFFFFF?text=Foto+13", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/4682B4/FFFFFF?text=Foto+14", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/D2691E/FFFFFF?text=Foto+15", title: "Posição teste", description: "Apenas teste de posição" },
+    { src: "https://via.placeholder.com/600/CD5C5C/FFFFFF?text=Foto+16", title: "Posição teste", description: "Apenas teste de posição" },
+   
+    { src: "https://d1yei2z3i6k35z.cloudfront.net/6946809/67b2418848218_foto04workshop.jpg", title: "Workshop IV: realizado no dia 14/09/2022.", description: "Nessa oportunidade foi realizada a apresentação do Planejamento de Ecossistemas de Inovação de Cambé e informações sobre a Governança de Tecnologia e Inovação de Cambé." },
+    
+    { src: "https://d1yei2z3i6k35z.cloudfront.net/6946809/67b243b3efa5f_foto041workshop.jpg", title: "Workshop IV: realizado no dia 19/08/2022.", description: "Nessa oportunidade foi realizada a apresentação do Planejamento de Ecossistemas de Inovação de Cambé e como também informações acerca da participação na Governança de Tecnologia e Inovação." },
+    
+    { src: "https://d1yei2z3i6k35z.cloudfront.net/6946809/67b24a9612e1f_foto031workshop.jpg", title: "Workshop III: realiano no dia 29 de julho de 2022", description: "Nessa oportunidade foram discutidas as ações a serem realizadas, como será feito para viabilizar recursos para a execução das ações, os resultados esperados para o ecossistema, quais os indicadores para medir o impactos e foram sugeridas as data de início e data de término para execução das ações do Planejamento do Ecossitema de Inovação de Cambé." }, 
+    
+    { src: "https://d1yei2z3i6k35z.cloudfront.net/6946809/67b2453979736_foto03workshop.jpg", title: "Workshop II: realizado no dia 12/07/2022.", description: "Nessa oportunidade foi apresentado aos participantes as diretrizes estratégicas do Plano de ação para as vertentes prioritárias: Ambientes de Inovação; Programas e Ações; ICTI e Políticas Públicas. Os participantes validaram as diretrizes de cada vertente no radar, indicaram novas que foram inseridas no plano de ação e estabeleceram o cenário desejado para os próximos 05 anos. Na sequência são apresentadas fotos da realização do Workshop II." },
+ 
+    { src: "https://d1yei2z3i6k35z.cloudfront.net/6946809/67b24ca5f3736_foto01workshop.jpg", title: "Workshop II: realizado no dia 16 de junho de 2022.", description: "Nessa oportunidade foi realizada a apresentação das potencialidades do município de Cambé no que se refere às vocações e as potencialidades econômicas para definição dos setores estratégicos do planejamento do ecossistema de inovação de Cambé, que culminou com a identificação e validação dos quatro setores estratégicos para o município: Cadeia do Agronegócio; Fármacos; Eletrometalmecânico, Químicos e Materiais e Tecnologia da Informação e Comunicação. Além da validação dos setores estratégicos identificados, os participantes complementaram o mapa de atores. Adicionalmente são apresentados as evidências da realização do Workshop I, no que tange a fotos e lista de presença. A Figura 16 apresentam o convite do primeiro evento." },
+]
+
+function loadGallery() {
+    const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
+    photos.forEach((photo, index) => {
+        const item = document.createElement("div");
+        item.classList.add("gallery-item");
+        item.innerHTML = `
+            <img src="${photo.src}" alt="${photo.title}" onclick="showArticle(${index})">
+            <div class="title">${photo.title}</div>
+            <button class="read-more" onclick="showArticle(${index})">Ler mais</button>
+        `;
+        gallery.appendChild(item);
+    });
+}
+
+function showArticle(index) {
+    const photo = photos[index];
+    document.getElementById("gallery").style.display = "none";
+    document.getElementById("article-view").style.display = "block";
+    document.getElementById("article-view").innerHTML = `
+        <center>
+        <img src="${photo.src}" alt="${photo.title}">
+        </center>
+        <h2>${photo.title}</h2>
+        <p>${photo.description}</p>
+        <center>
+        <button class="back-button" onclick="closeArticle()">Voltar</button>
+        </center>
+    `;
+}
+
+function closeArticle() {
+    document.getElementById("article-view").style.display = "none";
+    document.getElementById("gallery").style.display = "grid";
+}
+
+loadGallery();
+
+</script>
+
+</body>
+
+
+</html>
