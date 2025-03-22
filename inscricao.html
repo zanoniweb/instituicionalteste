@@ -471,11 +471,14 @@
 
     <script>
 
+
+        // Código para limpar o formulário quando estiver preenchido de forma equivocada
         function limpar() {
     document.getElementById("tabelaAreas").reset();
     document.getElementById('resultado').innerHTML = "";
 }
 
+      // Código para salvar o arquivo em pdf
       function saveFormAsPDF() {
         const { jsPDF } = window.jspdf;
 
@@ -501,7 +504,7 @@
         });
     }
 
-        // Carregar para novo calculo.
+        // Carregar para novo calculo
         function novoCalculo() {     window.location.href = 'inscricao.html'; }
         
     </script>
