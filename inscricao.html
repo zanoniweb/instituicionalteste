@@ -318,6 +318,15 @@
     }
     /* Estilização final do formulário */
 
+    /* Início do código para a impressão */
+        
+    @media print { 
+        #noprint { display:none; } 
+        body { background: #fff; }
+    }
+
+    /* Final do código para a impressão */
+
 </style>
 
 </head>
@@ -423,13 +432,17 @@
         
         <div class="form-group buttons">
 
-            <button type="reset">Limpar</button>
+            <button class="btn" onclick="novoCalculo()">Carregar Novo Formulário</button>
 
              <!--O botão enviar e as duas linhas abaixo fazem parte também essencial para encaminhar os dados do formulário para o e-mail do destinatário-->
             <button type="submit">Enviar</button>
                 <input type="hidden" name="_next" value="https://zanoniweb.github.io/instituicionalteste/thanks.html">
                 <input type="hidden" name="_subject" value="New submission!">
-            
+
+            <button onclick="print()">Imprimir</button>
+    
+            <button type="reset">Limpar</button>
+    
             <button type="button" onclick="saveFormAsPDF()">Salvar PDF</button>
 
         </div>
@@ -474,6 +487,10 @@
             pdf.save('Formulario_Inscricao.pdf'); // Salva o arquivo
         });
     }
+
+        // Carregar para novo calculo.
+        function novoCalculo() {     window.location.href = 'inscricao.html'; }
+        
     </script>
 
     
