@@ -450,29 +450,30 @@
     document.getElementById('resultado').innerHTML = "";
 }
 
-        // Função para salvar o formulário como PDF
-        function saveFormAsPDF() {
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({
-        orientation: "portrait", 
-        unit: "mm",
-        format: "a4"
-    });
+      function saveFormAsPDF() {
+        const { jsPDF } = window.jspdf;
 
-    pdf.setFontSize(12); // Reduz o tamanho da fonte para caber tudo na folha
+        // Captura o formulário
+        const form = document.querySelector('.contact-form');
 
-    pdf.html(document.getElementById("form"), {
-        callback: function (doc) {
-            doc.save("formulario_inscricao.pdf");
-        },
-        x: 10,
-        y: 10,
-        width: 190, // Define uma largura adequada para não cortar os inputs
-        windowWidth: 800, // Simula uma largura maior para melhor renderização
-    });
-}
- 
-        
+        html2canvas(form).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
+
+            // Define as margens e adiciona a imagem do formulário ao PDF
+            const imgWidth = 190; // Largura da imagem no PDF
+            const pageHeight = 297; // Altura da página A4 em mm
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            let position = 10; // Margem superior inicial
+
+            pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+            pdf.save('Formulario_Inscricao.pdf'); // Salva o arquivo
+        });
+    }
     </script>
 
     
